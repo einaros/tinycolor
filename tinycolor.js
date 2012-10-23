@@ -23,9 +23,12 @@ var styles = {
   'bgWhite':   ['\033[47m', '\033[49m'],
   'bgDefault': ['\033[49m', '\033[49m']
 }
+
+var enabled = !process.env.NOCOLOR;
+
 Object.keys(styles).forEach(function(style) {
   Object.defineProperty(String.prototype, style, {
-    get: function() { return styles[style][0] + this + styles[style][1]; },
+    get: function() { return (enabled ? styles[style][0] + this + styles[style][1] : this); },
     enumerable: false
   });
 });
