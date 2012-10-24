@@ -1,3 +1,5 @@
+var tty = require('tty');
+
 var styles = {
   'bold':      ['\033[1m', '\033[22m'],
   'italic':    ['\033[3m', '\033[23m'],
@@ -24,7 +26,7 @@ var styles = {
   'bgDefault': ['\033[49m', '\033[49m']
 }
 
-var enabled = !process.env.NOCOLOR;
+var enabled = !process.env.NOCOLOR && tty.isatty(1) && tty.isatty(2);
 
 Object.keys(styles).forEach(function(style) {
   Object.defineProperty(String.prototype, style, {
