@@ -2,6 +2,10 @@
 
 This is a no-fuzz, barebone, zero muppetry color module for node.js.
 
+# Environment variables
+
+* The module respects the `NOCOLOR` environment variable if you wish to disable the coloring.
+
 # License
 
 MIT License
