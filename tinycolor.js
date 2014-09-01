@@ -24,7 +24,7 @@ var styles = {
   'bgCyan':    ['\u001b[46m', '\u001b[49m'],
   'bgWhite':   ['\u001b[47m', '\u001b[49m'],
   'bgDefault': ['\u001b[49m', '\u001b[49m']
-}
+};
 
 var enabled = !process.env.NOCOLOR && tty.isatty(1) && tty.isatty(2);
 
