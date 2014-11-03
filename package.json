@@ -3,6 +3,12 @@
   "name": "tinycolor",
   "description": "a to-the-point color module for node",
   "version": "0.0.1",
+  "licenses" : [
+    {
+      "type" : "MIT",
+      "url" : "https://raw.githubusercontent.com/einaros/tinycolor/master/README.md"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/einaros/tinycolor.git"
