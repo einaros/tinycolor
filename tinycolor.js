@@ -1,7 +1,7 @@
 var tty = require('tty');
 
 var styles = {
-  'bold':      ['\033[1m', '\033[22m'],
+  'strong':    ['\033[1m', '\033[22m'],
   'italic':    ['\033[3m', '\033[23m'],
   'underline': ['\033[4m', '\033[24m'],
   'inverse':   ['\033[7m', '\033[27m'],
@@ -29,8 +29,10 @@ var styles = {
 var enabled = !process.env.NOCOLOR && tty.isatty(1) && tty.isatty(2);
 
 Object.keys(styles).forEach(function(style) {
-  Object.defineProperty(String.prototype, style, {
-    get: function() { return (enabled ? styles[style][0] + this + styles[style][1] : this); },
-    enumerable: false
-  });
+  if(!Object.getOwnPropertyDescriptor(String.prototype, style)) {
+    Object.defineProperty(String.prototype, style, {
+      get: function() { return (enabled ? styles[style][0] + this + styles[style][1] : this); },
+      enumerable: false
+    });
+  }
 });
