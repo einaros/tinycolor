@@ -29,10 +29,6 @@ var styles = {
 var enabled = !process.env.NOCOLOR && tty.isatty(1) && tty.isatty(2);
 
 Object.keys(styles).forEach(function(style) {
-  if(style == 'bold') {
-    style = 'strong';
-  }
-  
   if(!Object.getOwnPropertyDescriptor(String.prototype, style)) {
     Object.defineProperty(String.prototype, style, {
       get: function() { return (enabled ? styles[style][0] + this + styles[style][1] : this); },
